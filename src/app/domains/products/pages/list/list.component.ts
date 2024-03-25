@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { Product } from '../../../shared/models/product.model';
 import { ProductComponent } from '../../components/product/product.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -26,9 +27,9 @@ export class ListComponent {
     return data
   }
 
-  products = this.createData(10)
-  fromChild(event:string){
-    console.log("Estamos en el padre!")
-    console.log(event)
+  products= signal<Product[]>(this.createData(10))
+  cart = signal<Product[]>([])
+  addToCart(product:Product){
+    this.cart.update(prevState => [...prevState, product] )
   }
 }
