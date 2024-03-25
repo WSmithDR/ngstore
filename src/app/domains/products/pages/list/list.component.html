@@ -1,5 +1,7 @@
 <div class="grid grid-cols-3 gap-8">
   @for (product of products; track product) {
-    <app-product [title]="product.title" [price]="product.price" [img]="product.img" (addToCart)="fromChild($event)"/>
+    <app-product
+      [product]="product"
+      (addToCart)="fromChild($event)"/>
   }
 </div>

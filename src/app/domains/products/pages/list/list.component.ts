@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Product } from '../../../shared/models/product.model';
 import { ProductComponent } from '../../components/product/product.component';
 
 @Component({
@@ -13,12 +14,12 @@ export class ListComponent {
   createData(num:number){
     let data = []
     for(let i=1; i<=num; i++){
-      const j = Math.floor(Math.random() * (num - 1 + 1)) + 1
-      const item = {
-        id: j,
-        title: `Producto ${j}`,
-        price: Number(`${j}000`),
-        img: `https://picsum.photos/640/640?r=${j}`
+      const item: Product = {
+        id: Date.now(),
+        title: `Producto ${i}`,
+        price: Number(`${i}000`),
+        img: `https://picsum.photos/640/640?r=${i}`,
+        creationAt: new Date().toISOString()
       }
       data.push(item)
     }
