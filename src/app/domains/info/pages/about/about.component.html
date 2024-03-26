@@ -1,15 +1,18 @@
-<div class="px-10">
-  <h1 class="text-lg font-bold">About</h1>
-  <p class="test-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aliquid sint, modi, et vitae reiciendis nemo quos corporis, minima cupiditate fugit facilis quo ex doloribus ut distinctio exercitationem adipisci dolor.
-  Sint vitae ex quo totam architecto atque obcaecati praesentium laudantium laborum delectus <span highlight>odio quas, eligendi numquam dolorem harum cupiditate sequi consequuntur autem</span> accusantium quidem illum reiciendis voluptas. Asperiores, eius veritatis?
-  Aperiam cumque atque similique ullam id omnis quo laborum non minus, rerum quia facilis magnam explicabo perspiciatis dolorem blanditiis ex voluptates nisi mollitia amet distinctio, minima possimus iusto aspernatur. Obcaecati.</p>
-  <p>
-    <strong>Numero de clientes: </strong>
-    @if(duration()>0){
-      <app-counter [duration]="duration()" [message]="message()"/>
-    }
-  </p>
-  <div>
-    <app-wave-audio audioUrl="assets\audio\Recording (8).m4a"/>
+<div class="container mx-auto">
+  <app-header/>
+  <div class="px-10">
+    <h1 class="text-lg font-bold">About</h1>
+    <p class="test-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aliquid sint, modi, et vitae reiciendis nemo quos corporis, minima cupiditate fugit facilis quo ex doloribus ut distinctio exercitationem adipisci dolor.
+    Sint vitae ex quo totam architecto atque obcaecati praesentium laudantium laborum delectus <span highlight>odio quas, eligendi numquam dolorem harum cupiditate sequi consequuntur autem</span> accusantium quidem illum reiciendis voluptas. Asperiores, eius veritatis?
+    Aperiam cumque atque similique ullam id omnis quo laborum non minus, rerum quia facilis magnam explicabo perspiciatis dolorem blanditiis ex voluptates nisi mollitia amet distinctio, minima possimus iusto aspernatur. Obcaecati.</p>
+    <p>
+      <strong>Numero de clientes: </strong>
+      @if(duration()>0){
+        <app-counter [duration]="duration()" [message]="message()"/>
+      }
+    </p>
+    <div>
+      <app-wave-audio audioUrl="assets\audio\Recording (8).m4a"/>
+    </div>
   </div>
 </div>
