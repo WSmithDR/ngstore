@@ -3,6 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { Product } from '../../../shared/models/product.model';
 import { CartService } from '../../../shared/services/cart.service';
+import { ProductService } from '../../../shared/services/product.service';
 import { ProductComponent } from '../../components/product/product.component';
 
 @Component({
@@ -14,22 +15,21 @@ import { ProductComponent } from '../../components/product/product.component';
 })
 export class ListComponent {
   private cartService = inject(CartService)
-  createData(num:number){
-    let data = []
-    for(let i=1; i<=num; i++){
-      const item: Product = {
-        id: Date.now(),
-        title: `Producto ${i}`,
-        price: Number(`${i}000`),
-        img: `https://picsum.photos/640/640?r=${i}`,
-        creationAt: new Date().toISOString()
-      }
-      data.push(item)
-    }
-    return data
-  }
+  private productService = inject(ProductService)
 
-  products= signal<Product[]>(this.createData(10))
+  products = signal<Product[]>([])
+
+  ngOnInit(){
+    this.productService.getProducts()
+    .subscribe({
+      next: (products) => {
+        this.products.set(products)
+      },
+      error: ()=>{
+        "Error getting the products!"
+      }
+    })
+  }
   addToCart(product:Product){
     this.cartService.addToCart(product)
   }
