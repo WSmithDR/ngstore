@@ -17,14 +17,17 @@
         <li>
           <a
             routerLink="/"
+            routerLinkActive="underline"
             class="block underline hover:underline"
             aria-current="page"
+            [routerLinkActiveOptions]="{exact:true}"
             >Home</a
           >
         </li>
         <li>
           <a
             routerLink="/about"
+            routerLinkActive="underline"
             class="block hover:underline"
             >About</a
           >
@@ -32,6 +35,7 @@
         <li>
           <a
             routerLink="/services"
+            routerLinkActive="underline"
             class="block hover:underline"
             >Services</a
           >
