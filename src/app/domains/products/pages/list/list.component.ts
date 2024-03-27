@@ -27,15 +27,11 @@ export class ListComponent {
   categories = signal<Category[]>([])
 
   ngOnInit(){
-    this.getProducts()
     this.getCategories()
   }
 
   ngOnChanges(changes: SimpleChanges){
-    const category_id = changes["category_id"]
-    if(category_id){
       this.getProducts()
-    }
   }
   addToCart(product:Product){
     this.cartService.addToCart(product)
