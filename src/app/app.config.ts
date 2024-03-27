@@ -10,3 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient()
   ]
 };
+
+
+/*export const appConfig: ApplicationConfig = {  providers: \[provideRouter(routes, withComponentInputBinding(), withPreloading(PreloadAllModules)), provideHttpClient()]}; */
