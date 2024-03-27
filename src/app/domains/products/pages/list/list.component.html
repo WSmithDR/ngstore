@@ -1,8 +1,13 @@
 <div class="flex space-x-4 mt-5">
   <div class="w-80">
     <ul>
+      <li>
+        <a routerLink="/">All</a>
+      </li>
       @for (category of categories(); track category) {
-        <li href="">{{category.name}}</li>
+        <li>
+          <a routerLink="/" [queryParams]="{category_id: category.id}">{{category.name}}</a>
+        </li>
       }
     </ul>
   </div>
